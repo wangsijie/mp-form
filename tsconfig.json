@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "outDir": "lib",
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "declaration": true,
+        "jsx": "react"
+    },
+    "files": [
+        "src/index.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+}
