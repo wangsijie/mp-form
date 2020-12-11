@@ -1,33 +1,52 @@
 .ui-form {
-    margin-bottom: 60px;
-    .buttons {
-        padding: 40px;
-        button.primary {
-            background: #8BC336;
-            border-radius: 44px;
-            font-size: 36px;
-            color: #fff;
-            padding: 4px 0;
-            box-shadow: 2px 2px 16px 0px rgba(156,210,0,0.5);
-        }
+  margin-bottom: 60px;
+  .buttons {
+    padding: 40px;
+    button.primary {
+      background: #8bc336;
+      border-radius: 44px;
+      font-size: 36px;
+      color: #fff;
+      padding: 4px 0;
+      box-shadow: 2px 2px 16px 0px rgba(156, 210, 0, 0.5);
     }
+  }
 }
 
 .ui-image-uploader {
-    margin: -20px -32px -20px -32px;
-    background: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    .block {
-        background: #FAFAFA;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        &.create {
-            View {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
+  margin: -20px -32px -20px -32px;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  .block {
+    background: #fafafa;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    &.create {
+      View {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
+  }
+}
+
+.ui-form-group {
+  margin: 40px;
+  font-size: 32px;
+  color: #333;
+  .label {
+    margin: 0 32px 16px 32px;
+    &.required {
+      &::after {
+        content: "*";
+        color: red;
+      }
+    }
+  }
+  .main {
+    padding: 20px 32px;
+    background: #fafafa;
+  }
 }

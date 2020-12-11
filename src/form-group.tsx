@@ -21,13 +21,17 @@ interface State {
 }
 
 export default class FormGroup extends Component<Props, State> {
+  constructor(args: any) {
+    super(args);
+    this.state = { value: undefined };
+  }
 
   componentDidMount() {
     this.updateValue(this.props.value);
   }
 
-  componentDidUpdate() {
-    if (this.props.value !== undefined) {
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.value !== undefined && this.props.value !== prevProps.value) {
       this.updateValue(this.props.value);
     }
   }
