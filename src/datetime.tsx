@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from '@tarojs/components';
-import moment from 'moment';
+import moment from 'dayjs';
 
 interface Props {
     onChange: (value: string) => void;

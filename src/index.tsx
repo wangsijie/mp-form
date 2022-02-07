@@ -9,21 +9,37 @@ export interface IDataSourceItem {
   title: string;
 }
 
-export interface FormSection {
+interface BasicFormSection {
   label: string;
   name: string;
-  type: 'text' | 'number' | 'textarea' | 'gallery' | 'select' | 'datetime' | 'switch';
   required?: boolean;
   style?: Object;
-  dataSource?: IDataSourceItem[];
-  uploadUrl?: string;
   width?: string;
   height?: string;
-  multiple?: boolean;
-  placeholder?: string;
   readonly?: boolean;
-  uploadIcon?: string;
+  placeholder?: string;
 }
+
+interface GeneralFormSection extends BasicFormSection {
+  type: "text" | "number" | "textarea" | "datetime" | "switch";
+}
+
+interface GalleryFormSection extends BasicFormSection {
+  type: "gallery";
+  uploadUrl: string;
+  uploadIcon?: string;
+  multiple?: boolean;
+}
+
+interface SelectFormSection extends BasicFormSection {
+  type: "gallery";
+  dataSource: IDataSourceItem[];
+}
+
+export type FormSection =
+  | GeneralFormSection
+  | GalleryFormSection
+  | SelectFormSection;
 
 interface IData {
   [key: string]: any;
@@ -112,19 +128,12 @@ export default class UIForm extends Component<Props, State> {
           <FormGroup
             key={control.name}
             value={stateFormData[control.name]}
-            label={control.label}
             kstyle={control.style}
-            type={control.type}
-            dataSource={control.dataSource}
-            uploadUrl={control.uploadUrl}
-            required={control.required}
-            width={control.width}
-            height={control.height}
-            multiple={control.multiple}
-            placeholder={control.placeholder}
-            readonly={control.readonly}
             preview={preview}
             onChange={(value) => this.onFormGroupChange(control.name, value)}
+            formProps={{
+              ...control,
+            }}
           />
         ))}
         {showSubmit && (
