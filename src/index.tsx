@@ -32,7 +32,7 @@ interface GalleryFormSection extends BasicFormSection {
 }
 
 interface SelectFormSection extends BasicFormSection {
-  type: "gallery";
+  type: "select";
   dataSource: IDataSourceItem[];
 }
 
