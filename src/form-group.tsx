@@ -56,6 +56,7 @@ export default class FormGroup extends Component<Props, State> {
       uploadIcon,
       placeholder,
       dataSource,
+      format,
     } = formProps;
     const { value } = this.state;
     // Taro限制，只能在 render 里面使用JSX
@@ -123,7 +124,12 @@ export default class FormGroup extends Component<Props, State> {
       }
       case "datetime": {
         formItem = (
-          <DateTime value={value} onChange={onChange} preview={preview} />
+          <DateTime
+            value={value}
+            onChange={onChange}
+            preview={preview}
+            format={format}
+          />
         );
         break;
       }
