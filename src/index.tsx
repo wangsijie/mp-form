@@ -55,6 +55,7 @@ interface Props {
   formData?: IData;
   formSections: FormSection[];
   onSubmit: (data: IData, errors: string[]) => void;
+  onFieldChange?: (field: string, value: unknown) => void;
   preview?: boolean;
   submitText?: string;
   showSubmit?: boolean;
@@ -120,6 +121,8 @@ export default class UIForm extends Component<Props, State> {
 
   onFormGroupChange = (name: string, value: any) => {
     this.setFormItemValue(name, value);
+    const { onFieldChange } = this.props;
+    onFieldChange && onFieldChange(name, value);
   };
 
   render() {
