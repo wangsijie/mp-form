@@ -59,6 +59,7 @@ interface Props {
   preview?: boolean;
   submitText?: string;
   showSubmit?: boolean;
+  submitDisabled?: boolean;
 }
 
 interface State {
@@ -126,7 +127,8 @@ export default class UIForm extends Component<Props, State> {
   };
 
   render() {
-    const { formSections, preview, showSubmit, submitText } = this.props;
+    const { formSections, preview, showSubmit, submitText, submitDisabled } =
+      this.props;
     const { stateFormData } = this.state;
     if (!formSections) {
       return null;
@@ -151,6 +153,7 @@ export default class UIForm extends Component<Props, State> {
               type="primary"
               className="primary"
               onClick={this.validateForm}
+              disabled={submitDisabled}
             >
               {submitText || "保存"}
             </AtButton>
