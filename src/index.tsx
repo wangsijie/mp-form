@@ -72,15 +72,34 @@ export default class UIForm extends Component<Props, State> {
   };
 
   componentDidMount() {
-    const { formData = {} } = this.props;
-    this.setState({ stateFormData: formData });
+    this.loadFormData();
   }
 
   componentDidUpdate(prevProps: Props) {
-    if (this.props.formData && this.props.formData !== prevProps.formData) {
-      this.setState({ stateFormData: this.props.formData });
+    if (
+      (this.props.formData && this.props.formData !== prevProps.formData) ||
+      this.props.formSections !== prevProps.formSections
+    ) {
+      this.loadFormData();
     }
   }
+
+  loadFormData = () => {
+    const newFormData: Record<string, any> = {};
+    const { formData, formSections } = this.props;
+
+    if (!formData) {
+      return;
+    }
+
+    formSections.forEach((section) => {
+      if (formData[section.name] !== undefined) {
+        newFormData[section.name] = formData[section.name];
+      }
+    });
+
+    this.setState({ stateFormData: newFormData });
+  };
 
   setFormItemValue(name: string, value: any) {
     const stateFormData: IData = { ...this.state.stateFormData };
