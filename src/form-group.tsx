@@ -7,6 +7,7 @@ import ImageUploader from "./image-uploader";
 import Select from "./select";
 import DateTime from "./datetime";
 import MySwitch from "./my-switch";
+import MultiSelect from "./multi-select";
 
 interface Props {
   value?: any;
@@ -114,6 +115,17 @@ export default class FormGroup extends Component<Props, State> {
       case "select": {
         formItem = (
           <Select
+            value={value}
+            onChange={onChange}
+            preview={preview}
+            dataSource={dataSource!}
+          />
+        );
+        break;
+      }
+      case "multi-select": {
+        formItem = (
+          <MultiSelect
             value={value}
             onChange={onChange}
             preview={preview}

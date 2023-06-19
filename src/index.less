@@ -50,3 +50,35 @@
     background: #fafafa;
   }
 }
+
+.ui-multi-select {
+  .ui-multi-select__mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9998;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .ui-multi-select__panel {
+    position: fixed;
+    top: 200px;
+    left: 64px;
+    right: 64px;
+    bottom: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 9999;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+
+    .ui-multi-select__panel__body {
+      padding: 20px 32px;
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}

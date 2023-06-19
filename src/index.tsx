@@ -36,6 +36,11 @@ interface SelectFormSection extends BasicFormSection {
   dataSource: IDataSourceItem[];
 }
 
+interface MultiSelectFormSection extends BasicFormSection {
+  type: "multi-select";
+  dataSource: IDataSourceItem[];
+}
+
 interface DatetimeFormSection extends BasicFormSection {
   type: "datetime";
   format?: "date" | "datetime" | "month";
@@ -45,7 +50,8 @@ export type FormSection =
   | GeneralFormSection
   | GalleryFormSection
   | SelectFormSection
-  | DatetimeFormSection;
+  | DatetimeFormSection
+  | MultiSelectFormSection;
 
 interface IData {
   [key: string]: any;
