@@ -1,6 +1,6 @@
 {
   "name": "mp-form",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "lib/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -15,7 +15,7 @@
   },
   "peerDependencies": {
     "@tarojs/taro": "3.x",
-    "mp-remote": "0.x"
+    "mp-remote": "1.x"
   },
   "scripts": {
     "prepack": "rimraf lib && tsc && cpx src/index.less lib"
